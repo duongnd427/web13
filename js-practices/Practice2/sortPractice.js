@@ -1,7 +1,7 @@
 'use strict'
 
 function sort(input) {
-    var isSorted;
+  var isSorted;
   while (true) {
     isSorted = true;
     for (var i = 0; i < input.length - 1; i++) {
@@ -15,6 +15,7 @@ function sort(input) {
     if (isSorted === true) return input;
   }
 }
+
 
 
 
