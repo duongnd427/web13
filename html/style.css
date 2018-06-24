@@ -1,0 +1,39 @@
+/* tag name */
+span {
+    color: #0ffa07;
+}
+
+/* id */
+#top {
+    color: #072bfa;
+}
+
+/* class */
+.red {
+    color: red
+}
+
+/* attribute */
+[href] {
+    text-decoration: underline;
+}
+
+[href="#top"] {
+    text-decoration: overline;
+}
+
+/* and */
+p, .red {
+    color: #ff0080fa;
+}
+
+/* child */
+/* direct child */
+
+p:hover {
+    background-color: aqua;
+}
+
+img {
+    width: 200px;
+}

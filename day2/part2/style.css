@@ -1,0 +1,25 @@
+/* .menu {
+    color:  #402E2A;    
+    display: block;
+    background-color: #D5B0AC;
+    text-align: center;
+    width: 100px;
+    height: 30px;
+} */
+
+nav span{
+    color:  #402E2A;    
+    display: block;
+    background-color: #D5B0AC;
+    line-height: 30px;
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    contain: inherit;
+    margin: 1px;
+}
+
+span:hover{
+    color: #FFFFFF;
+    background-color: #9CD08F;
+}
