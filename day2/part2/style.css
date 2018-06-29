@@ -1,12 +1,3 @@
-/* .menu {
-    color:  #402E2A;    
-    display: block;
-    background-color: #D5B0AC;
-    text-align: center;
-    width: 100px;
-    height: 30px;
-} */
-
 nav span{
     color:  #402E2A;    
     display: block;
@@ -17,9 +8,13 @@ nav span{
     height: 30px;
     contain: inherit;
     margin: 1px;
+    transition: width height linear 2s .2s;
 }
 
 span:hover{
     color: #FFFFFF;
     background-color: #9CD08F;
+    cursor: pointer;
+    width: 150px;
+    height: 45px;
 }

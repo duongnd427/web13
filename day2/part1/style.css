@@ -5,8 +5,9 @@
     text-align: center;
 }
 
-nav span{
+span{
     display: inline-block;
+    font-weight: bold;
     width: 100px;
     height: 30px;
     contain: inherit;
@@ -16,4 +17,47 @@ nav span{
 span:hover{
     color: #FFFFFF;
     background-color: #9CD08F;
+    cursor: pointer;
 }
+
+
+.menu.sub-menu{
+    display: none;
+    position: absolute;
+    width: 100px;
+    height: 30px;
+}
+
+span:hover .menu.sub-menu {
+    display: block;
+}
+
+.menu .menu.sub-menu span{
+    color:  #402E2A;    
+    background: #D5B0AC;
+    display: block;
+    position: relative;
+}
+
+.menu.sub-menu span:hover{
+    color: #FFFFFF;
+    background-color: #9CD08F;
+    cursor: pointer;
+}
+
+
+.menu.sub-menu span .menu.sub-menu{
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+}
+
+.menu.sub-menu span:hover .menu.sub-menu {
+    display: block;
+   
+}
+
+
+
+
