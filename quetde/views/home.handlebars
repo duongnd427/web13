@@ -1,0 +1,68 @@
+<h3 style="font-weight: bold; text-align: center">{{question.content}}</h3>
+
+<div style="text-align: center">
+    <a href="/answer/{{question.id}}/no">
+        <button style="
+            background-color:red;
+            border-color:#ff0000d5;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.829);
+            width: 140px;
+            height: 40px;
+            border-radius: 10px;     
+            cursor: pointer;      
+            border: 1px solid; 
+        ">
+                Sai / Khong / Trai
+        </button>
+    </a>
+
+    <a href="/answer/{{question.id}}/yes">
+        <button style="
+            background-color:blue;
+            border-color:rgba(41, 11, 172, 0.945);
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.829);
+            width: 140px;
+            height: 40px;
+            border-radius: 10px;
+            cursor: pointer;
+            border: 1px solid;
+        ">        
+            Co / Dung / Phai
+        </button>
+    </a>
+</div>
+
+<div style="
+    margin-top: 40px;
+    text-align: center;
+">
+    <a href="/question/{{question.id}}">
+        <button style="
+            background-color:rgba(255, 255, 255, 0.829);
+            font-weight: bold;
+            width: 100px;
+            height: 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            border: 1px solid;
+        ">
+            ket qua vote
+        </button>
+    </a>
+
+    <a href="/">
+        <button style="
+            background-color:rgba(255, 255, 255, 0.829);
+            font-weight: bold;
+            width: 100px;
+            height: 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            border: 1px solid;
+        ">
+            cau hoi khac
+        </button>
+    </a>
+</div>
