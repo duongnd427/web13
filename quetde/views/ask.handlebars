@@ -1,7 +1,7 @@
 <h1>hay hoi mot cau</h1>
 
 <form action ="/question/add" method="POST">
-    <textarea maxlength="200" rows="6" id="question" name="questionContent" onkeyup="countWord()" 
+    <textarea id="question" maxlength="200" cols="30" rows="6" name="questionContent"
                 style="display: block;
                     width: 80%;
                     height: 50px;
@@ -9,19 +9,10 @@
                     font-size: 14px;
                     color: #555;
                     border: 1px solid #ccc;
-                    border-radius: 4px;            
-                ">
-            </textarea>
+                    border-radius: 4px"></textarea>
             
-    <p id="askbox">Còn 200/200 kí tự</p>
+    <p>Còn <span id="remain">200</span>/200 kí tự</p>
 
-    <script type="text/javascript">
-        function countWord() {
-            let input = document.getElementById("question");
-            console.log(input);
-            document.getElementById("askbox").innerHTML = "Còn " + (200 - input.value.length) + "/200 kí tự";
-        }
-    </script>
 
     <button type="submit"
             style=" color: #fff;
@@ -38,3 +29,11 @@
     </button>
     
 </form>
+
+<script>
+    let char = 200;
+
+    document.getElementById("question").addEventListener("input", function() {
+        document.getElementById("remain").innerText = char - document.getElementById("question").value.length
+    });
+</script>

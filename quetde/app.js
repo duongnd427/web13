@@ -3,6 +3,10 @@ const hbs = require('express-handlebars');
 const questionList = require('./question.json');
 const fs = require('fs');
 const bodyParser = require('body-parser');
+const questionRouter = require('./roưter/questionRouter');
+const answerRouter = require('./roưter/answerRouter');
+const askRouter = require('./roưter/askRouter');
+const mongoose = require("mongoose");
 
 let app = express();
 
@@ -12,6 +16,12 @@ app.set("view engine", "handlebars");
 
 app.use(bodyParser.urlencoded({extended: false}));
 
+app.use("/question", questionRouter);
+
+app.use("/answer", answerRouter);
+
+app.use("/ask", askRouter);
+
 app.get("/", (req, res) => {
     let questionRandom = questionList[Math.floor(Math.random()*questionList.length)];
     res.render("home", {
@@ -19,37 +29,23 @@ app.get("/", (req, res) => {
     });
 });
 
-app.get("/ask", (req, res) => {
-    res.render("ask")
-});
+// app.get("/ask", (req, res) => {
+//     res.render("ask")
+// });
 
 
-app.post("/question/add", (req, res) => {
-    let newQuestion = {
-        content: req.body.questionContent,
-        yes: 0, 
-        no: 0, 
-        id: questionList.length
-    };
-    questionList.push(newQuestion);
-    fs.writeFileSync('./question.json', JSON.stringify(questionList));
-    res.redirect('/question/' + newQuestion.id);
-});
 
-app.get("/question/:id", (req, res) => {
-    
-    let question = questionList[req.params.id];
-    res.render("question", {
-        question,
-        totalVote: question.yes + question.no
-    });
-});
 
-app.get("/answer/:id/:vote", (req, res) => {
-    questionList[req.params.id][req.params.vote] += 1;
-    fs.writeFileSync('./question.json', JSON.stringify(questionList));
-    res.redirect("/question/" + req.params.id);
-});
+// app.get("/answer/:id/:vote", (req, res) => {
+//     questionList[req.params.id][req.params.vote] += 1;
+//     fs.writeFileSync('./question.json', JSON.stringify(questionList));
+//     res.redirect("/question/" + req.params.id);
+// });
+
+mongoose.connect("mongodb://localhost:27017/quyetde", { useNewUrlParser: true}, function(err) {
+    if(err) console.log(err)
+    else console.log("DB connected")
+})
 
 
 app.listen(4111, function(err) {
