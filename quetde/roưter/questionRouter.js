@@ -20,12 +20,20 @@ router.post("/add", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-    
-    let question = questionList[req.params.id];
-    res.render("question", {
-        question,
-        totalVote: question.yes + question.no
-    });
+    QuestionModel.findById(req.params.id, function(err, questionFound) {
+        if (!questionFound) console.error("not found:")
+        else {
+            res.render("question", {
+                question: questionFound,
+                totalVote: questionFound.yes + questionFound.no
+            });
+        };
+    })
+    // let question = questionList[req.params.id];
+    // res.render("question", {
+    //     question,
+    //     totalVote: question.yes + question.no
+    // });
 });
 
 

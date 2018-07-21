@@ -4,7 +4,6 @@ const fs = require("fs");
 const QuestionModel = require("../models/questionModel.js");
 
 
-
 router.get("/", (req, res) => {
     res.render("ask")
 });

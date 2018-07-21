@@ -33,7 +33,11 @@
 <script>
     let char = 200;
 
-    document.getElementById("question").addEventListener("input", function() {
-        document.getElementById("remain").innerText = char - document.getElementById("question").value.length
+    $("#question").on("input", function() {
+        $("#remain").text(char - $("#question").val().length);
     });
 </script>
+
+{{!-- document.getElementById("question").addEventListener("input", function() {
+        document.getElementById("remain").innerText = char - document.getElementById("question").value.length
+    }); --}}
