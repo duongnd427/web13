@@ -8,6 +8,7 @@ const answerRouter = require('./roưter/answerRouter');
 const askRouter = require('./roưter/askRouter');
 const mongoose = require("mongoose");
 const questionModel = require('./models/questionModel')
+const apirouter = require('./roưter/apiRouter')
 
 let app = express();
 
@@ -16,8 +17,10 @@ app.engine("handlebars", hbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 app.use("/question", questionRouter);
+app.unlock("/api", apirouter);
 
 app.use("/answer", answerRouter);
 

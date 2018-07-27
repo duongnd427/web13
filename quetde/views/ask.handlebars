@@ -1,6 +1,6 @@
 <h1>hay hoi mot cau</h1>
 
-<form action ="/question/add" method="POST">
+<form id = "questionForm">
     <textarea id="question" maxlength="200" cols="30" rows="6" name="questionContent"
                 style="display: block;
                     width: 80%;
@@ -35,6 +35,31 @@
 
     $("#question").on("input", function() {
         $("#remain").text(char - $("#question").val().length);
+    });
+
+    $("#questionForm").on("submit", function(event) {
+        event.defaultPrevented();
+
+        $.ajax({
+            url: '/api/question',
+            type: 'POST',
+            data: {
+                questionContent: $("#question").val();
+            },
+            success: function() {
+                console.log(body) {
+                    if(body.success) {
+                        window.location.href = "/question"+body.id;
+                    } else {
+                        alert("Loi roi !!!");
+                    }
+                },
+                error: function(body) {
+                    console.log(body);
+                    alert("Loi roi !");
+                }
+            }
+        });
     });
 </script>
 
