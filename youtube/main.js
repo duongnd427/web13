@@ -1,6 +1,9 @@
 $(document).ready(function () {
     $("#search").on("submit", function (event) {
         event.preventDefault();
+        window.onload=function(){
+            window.setTimeout('document.search.submit()', 500)
+        } 
 
         $.ajax({
             url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q='+$('#keyword').val()+'&key=AIzaSyA9gQZ-oYomFypZN7PsupZJtOfQqA6Q3qw',
@@ -12,7 +15,7 @@ $(document).ready(function () {
                 {
                     $("#result-list").append(`
                     <div class="col-md-12">
-                        <a class="result col-md-12" hnerf="https://www.youtube.com/watch?v=${result.items[i].id.videoId}?autoplay=true" target="_blank">
+                        <a class="result col-md-12" href="https://www.youtube.com/watch?v=${result.items[i].id.videoId}?autoplay=true" target="_blank">
                             <img src="${result.items[i].snippet.thumbnails.medium.url}" alt"">
                             <div class="${result.items[i].snippet}">
                                 <h2 class="title"> ${result.items[i].snippet.title}</h2>
@@ -37,7 +40,7 @@ $(document).ready(function () {
                                 {
                                     $("#result-list").append(`
                                     <div class="col-md-12">
-                                        <a class="result col-md-12" hnerf="https://www.youtube.com/watch?v=${result.items[j].id.videoId}?autoplay=true" target="_blank">
+                                        <a class="result col-md-12" href="https://www.youtube.com/watch?v=${result.items[j].id.videoId}?autoplay=true" target="_blank">
                                             <img src="${result.items[j].snippet.thumbnails.medium.url}" alt"">
                                             <div class="${result.items[j].snippet}">
                                                 <h2 class="title"> ${result.items[j].snippet.title}</h2>
@@ -59,5 +62,3 @@ $(document).ready(function () {
         });
     });
 });
-
-
