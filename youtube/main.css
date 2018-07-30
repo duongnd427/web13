@@ -22,3 +22,47 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+  .col-md-12.text-center img {
+      width: 50%;
+      height: auto;
+  }
+
+  h1 {
+      color: rgb(47, 0, 255);
+      text-align: center;
+      font-weight: bold;
+  }
+
+  input {
+      border: 2px;
+      border-color: rgb(17, 0, 255);
+      border-radius: 10px;
+  }
+
+ /* a.result.col-md-12 img {
+     display: block;
+      width: 30%;
+      float: left;
+  }
+
+ a.result.col-md-12 h2 {
+      width: auto;
+      float: right;
+  }
+
+ .description {
+    color: rgb(86, 76, 238);
+    display: inline-block;
+ }
+
+ .row {
+     display: block;
+     margin-bottom: 20px;
+ }
+
+ .title {
+     width: 70%;
+     display: block;
+     float: right; */
+ }
